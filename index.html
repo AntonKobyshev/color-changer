@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
-      integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <title>Color Chooser</title>
-  </head>
-  <body>   
-    <script src="render.js"></script>
-    <script src="script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
+    integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Color Chooser</title>
+</head>
+
+<body>
+  <div class="overlay">
+    <h3>ColorSet Chooser</h3>
+    <p>
+      This app helps you choose a random set of colors. Please tap the
+      "Spacebar" or this button
+      <button class="generate-color"><i class="fa-solid fa-shuffle"></i></button>
+      to generate colors.
+      <br />If you want to choose one of the colors, please tap
+      <i class="fa-solid fa-lock-open"></i> icon on the chosen color.
+      <br />After that, you can continue to generate other colors.
+      <br />Also, you can copy the #code of any color to use it by clicking on
+      the chosen #code.
+      <!-- <br />
+      Here you can choose the number of random colors. Please enter the number
+          </p> -->
+
+    <!-- <form id="myForm">
+      <input type="number" placeholder="Enter a number" id="numberOfColorsInput" />
+      <button type="submit">Submit</button>
+    </form> -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
