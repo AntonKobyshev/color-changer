@@ -18,6 +18,8 @@ document.addEventListener("click", (event) => {
 
     node.classList.toggle("fa-lock-open");
     node.classList.toggle("fa-lock");
+  } else if (type === "copy") {
+    copyToClickboard(event.target.textContent);
   }
 });
 
@@ -31,25 +33,38 @@ document.addEventListener("click", (event) => {
 // }
 
 function copyToClickboard(text) {
-  return navigator.clipboard, writeText(text);
+  return navigator.clipboard.writeText(text);
 }
 
-function setRandomColours() {
-  columns.forEach((column) => {
+function setRandomColours(isInitial) {
+  const colors = isInitial ? getColorsFromHash() : [];
+  columns.forEach((column, index) => {
     const isLocked = column.querySelector("i").classList.contains("fa-lock");
     const name = column.querySelector("h2");
     const button = column.querySelector("button");
-    const color = chroma.random();
 
     if (isLocked) {
+      colors.push(name.textContent);
       return;
     }
+
+    const color = isInitial
+      ? colors[index]
+        ? colors[index]
+        : chroma.random()
+      : chroma.random();
+
+    if (!isInitial) {
+      colors.push(color);
+    }
+
     name.textContent = color;
     column.style.background = color;
 
     setNameColor(name, color);
     setNameColor(button, color);
   });
+  updateColorsHash(colors);
 }
 
 function setNameColor(name, color) {
@@ -57,4 +72,20 @@ function setNameColor(name, color) {
   name.style.color = luminance > 0.5 ? "black" : "white";
 }
 
-setRandomColours();
+function updateColorsHash(colors = []) {
+  document.location.hash = colors
+    .map((column) => column.toString().substring(1))
+    .join("-");
+}
+
+function getColorsFromHash() {
+  if (document.location.hash.length > 1) {
+    return document.location.hash
+      .substring(1)
+      .split("-")
+      .map((color) => "#" + color);
+  }
+  return [];
+}
+
+setRandomColours(true);
