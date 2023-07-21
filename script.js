@@ -30,7 +30,14 @@ document.addEventListener("click", (event) => {
 
 
 function copyToClickboard(text) {
-  return navigator.clipboard.writeText(text);
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Сopied!");
+    })
+    .catch((err) => {
+      alert("Something goes wrong...");
+      console.error("Something goes wrong...", err);
+    });
 }
 
 function setRandomColours(isInitial) {
@@ -63,6 +70,7 @@ function setRandomColours(isInitial) {
   });
   updateColorsHash(colors);
 }
+
 
 function setNameColor(name, color) {
   const luminance = chroma(color).luminance();
